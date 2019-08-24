@@ -3,12 +3,13 @@ defmodule TwitterRetargeting.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :username, :string
-      add :password_hash, :string
-      add :email, :string
+      add :username, :string, null: false
+      add :password_hash, :string, null: false
+      add :email, :string, null: false
 
       timestamps()
     end
-
+    create index(:users, :email,    unique: true)
+    create index(:users, :username, unique: true)
   end
 end

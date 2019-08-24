@@ -19,6 +19,14 @@
           <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
         </a>
       </section>
+      <section>
+        <%= if !!@current_user do %>
+           <p>Logged as <%= @current_user.username %></p>
+           <p><%= link "Logout", to: Routes.session_path(@conn, :delete, @current_user), method: :delete %></p>
+        <% else %>
+          <%= link "Login", to: Routes.session_path(@conn, :new) %>
+        <% end %>
+      </section>
     </header>
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
