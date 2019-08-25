@@ -24,6 +24,7 @@ defmodule TwitterRetargetingWeb do
       import Plug.Conn
       import TwitterRetargetingWeb.Gettext
       alias TwitterRetargetingWeb.Router.Helpers, as: Routes
+      import TwitterRetargeting.Auth, only: [check_user_is_authorized: 2]
     end
   end
 

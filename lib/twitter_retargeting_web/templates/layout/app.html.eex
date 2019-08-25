@@ -23,6 +23,7 @@
         <%= if !!@current_user do %>
            <p>Logged as <%= @current_user.username %></p>
            <p><%= link "Logout", to: Routes.session_path(@conn, :delete, @current_user), method: :delete %></p>
+           <p><%= link "Add twitter creds", to: Routes.twitter_oauth_path(@conn, :create), method: :post  %> </p>
         <% else %>
           <%= link "Login", to: Routes.session_path(@conn, :new) %>
         <% end %>

@@ -20,6 +20,8 @@ defmodule TwitterRetargetingWeb.Router do
     get "/", PageController, :index
     resources "/user", UserController, only: [:new, :create] #, :edit, :update]
     resources "/session", SessionController, only: [:new, :create, :delete]
+    resources "/twitter_oauth", TwitterOauth, only: [:create]
+    get "/twitter_oauth/callback", TwitterOauth, :register_callback
   end
 
   # Other scopes may use custom stacks.

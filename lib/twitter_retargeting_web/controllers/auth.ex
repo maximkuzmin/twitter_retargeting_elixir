@@ -1,5 +1,6 @@
 defmodule TwitterRetargeting.Auth do
   import Plug.Conn
+  import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   alias TwitterRetargeting.User
 
   def init(opts) do
@@ -33,6 +34,17 @@ defmodule TwitterRetargeting.Auth do
     else
       Bcrypt.no_user_verify()
       {:error, :unauthorized, conn}
+    end
+  end
+
+  def check_user_is_authorized(conn, _opts) do
+    if conn.assigns.current_user do
+      conn
+    else
+      conn
+        |> put_flash(:error, "Login first, please")
+        |> redirect(to: Router.session_path(conn, :new))
+        |> halt()
     end
   end
 end
