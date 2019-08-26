@@ -11,6 +11,7 @@ defmodule TwitterRetargeting.User do
     field :password_confirmation, :string, virtual: true
     field :password_hash,         :string
     field :username,              :string
+    has_many :tokens, TwitterRetargeting.Token
 
     timestamps()
   end

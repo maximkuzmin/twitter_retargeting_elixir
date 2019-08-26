@@ -7,7 +7,7 @@
     <title>TwitterRetargeting · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
-  <body>
+  <body class='vue-application'>
     <header>
       <section class="container">
         <nav role="navigation">

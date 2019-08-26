@@ -6,7 +6,4 @@ defmodule TwitterRetargeting.TwitterOauth do
     {:ok, url} = ExTwitter.authenticate_url(token.oauth_token)
     url
   end
-
-  def get_access_token(verifier, token) do
-  end
 end

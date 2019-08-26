@@ -1,0 +1,4 @@
+<%= form_for @conn, Routes.task_path(@conn, :create), [as: :common_followers_task], fn f -> %>
+  <%= text_input f, :user_handlers, placeholder: "User handlers splitted by comma" %>
+  <%= submit "Submit"  %>
+<% end %>
